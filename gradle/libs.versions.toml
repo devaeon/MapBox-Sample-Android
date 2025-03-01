@@ -1,30 +1,37 @@
 [versions]
-agp = "8.8.0"
-android = "10.16.2"
-androidVersion = "2.17.0"
-kotlin = "1.9.24"
-coreKtx = "1.15.0"
+
+agp = "7.0.4"  # Compatible with targetSdk 30
+kotlin = "1.6.21"  # Use a stable version that works with AGP 7
+coreKtx = "1.6.0"  # Compatible with SDK 30
 junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-appcompat = "1.7.0"
-material = "1.12.0"
-activity = "1.10.0"
-constraintlayout = "2.2.0"
-playServicesLocation = "21.3.0"
+junitVersion = "1.1.3"
+espressoCore = "3.4.0"
+appcompat = "1.3.1"  # Works well with SDK 30
+constraintlayout = "2.1.4"
+playServicesLocation = "18.0.0"  # SDK 30 compatible version
+material = "1.4.0"  # Compatible with targetSdk 30
+activity = "1.3.0"
+
+mapboxAndroidNavigation = "0.42.6"  # Keep old version as required
+mapboxAndroidSdk = "9.7.1"  # Keep old version
 
 [libraries]
-android = { module = "com.mapbox.maps:android", version.ref = "android" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+
+#MapBox
+mapbox-android-navigation = { module = "com.mapbox.mapboxsdk:mapbox-android-navigation", version.ref = "mapboxAndroidNavigation" }
+mapbox-android-navigation-ui = { module = "com.mapbox.mapboxsdk:mapbox-android-navigation-ui", version.ref = "mapboxAndroidNavigation" }
+mapbox-android-sdk = { module = "com.mapbox.mapboxsdk:mapbox-android-sdk", version.ref = "mapboxAndroidSdk" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-navigation-android = { module = "com.mapbox.navigation:android", version.ref = "androidVersion" }
-play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -15,7 +15,8 @@ import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
 
 class LocationPermissionHelper(private val activity: Activity) {
-    private lateinit var permissionsManager: PermissionsManager
+
+    private  var permissionsManager: PermissionsManager?=null
 
     fun checkPermission(onMapReady: () -> Unit) {
         if (PermissionsManager.areLocationPermissionsGranted(activity)) {
@@ -39,7 +40,7 @@ class LocationPermissionHelper(private val activity: Activity) {
                     }
                 }
             })
-        permissionsManager.requestLocationPermissions(activity)
+        permissionsManager?.requestLocationPermissions(activity)
         }
     }
 
@@ -49,7 +50,7 @@ class LocationPermissionHelper(private val activity: Activity) {
         grantResult: IntArray
     ) {
 
-        permissionsManager.onRequestPermissionsResult(requestCode, permission, grantResult)
+        permissionsManager?.onRequestPermissionsResult(requestCode, permission, grantResult)
     }
 
     private fun requestOptionalPermissions(onMapReady: () -> Unit) {
@@ -63,12 +64,12 @@ class LocationPermissionHelper(private val activity: Activity) {
         ) {
             permissionsToRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+     /*   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
             ContextCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) !=
             PackageManager.PERMISSION_GRANTED
         ) {
             permissionsToRequest.add(Manifest.permission.POST_NOTIFICATIONS)
-        }
+        }*/
         if (permissionsToRequest.isNotEmpty()) ActivityCompat.requestPermissions(
             activity,
             permissionsToRequest.toTypedArray(),

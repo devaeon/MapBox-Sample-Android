@@ -1,16 +1,16 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id 'com.android.application'
+    id "org.jetbrains.kotlin.android"
 }
 
 android {
     namespace 'com.devaeon.mapbox'
-    compileSdk 35
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.devaeon.mapbox"
         minSdk 24
-        targetSdk 35
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -34,6 +34,8 @@ android {
     buildFeatures{
         viewBinding= true
     }
+
+
 }
 
 dependencies {
@@ -49,7 +51,18 @@ dependencies {
 
 
     //Mapbox Android
-    implementation libs.android
     implementation libs.play.services.location
-    implementation libs.navigation.android
+
+    implementation(libs.mapbox.android.sdk) {
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
+    }
+
+    implementation(libs.mapbox.android.navigation.ui) {
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
+    }
+
+    implementation(libs.mapbox.android.navigation.ui) {
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-telemetry'
+    }
+
 }
