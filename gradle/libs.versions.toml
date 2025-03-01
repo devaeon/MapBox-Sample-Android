@@ -23,7 +23,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 #MapBox
-mapbox-android-navigation = { module = "com.mapbox.mapboxsdk:mapbox-android-navigation", version.ref = "mapboxAndroidNavigation" }
+mapbox-navigation = { module = "com.mapbox.mapboxsdk:mapbox-android-navigation", version.ref = "mapboxAndroidNavigation" }
 mapbox-android-navigation-ui = { module = "com.mapbox.mapboxsdk:mapbox-android-navigation-ui", version.ref = "mapboxAndroidNavigation" }
 mapbox-android-sdk = { module = "com.mapbox.mapboxsdk:mapbox-android-sdk", version.ref = "mapboxAndroidSdk" }
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
